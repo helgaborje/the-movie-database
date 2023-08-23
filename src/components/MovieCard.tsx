@@ -1,13 +1,12 @@
 import React from 'react'
 import Card from 'react-bootstrap/Card'
 import ListGroup from 'react-bootstrap/ListGroup'
-import Image from 'react-bootstrap/Image'
 
 interface MovieCardProps {
 	poster_path: string
 	title: string
-	vote_average: number
-	release_date: number
+	vote_average?: number
+	release_date?: number
 }
 
 const MovieCard: React.FC<MovieCardProps> = ({
@@ -23,15 +22,12 @@ const MovieCard: React.FC<MovieCardProps> = ({
 		<Card style={{ width: '15rem' }}>
 			<ListGroup>
 				<ListGroup.Item>
-					<Card.Body>
-						<Image
+						<Card.Img
 							src={imageUrl + poster_path}
-							fluid
 						/>
 						<Card.Subtitle>{vote_average}</Card.Subtitle>
 						<Card.Title>{title}</Card.Title>
 						<Card.Text>{release_date}</Card.Text>
-					</Card.Body>
 				</ListGroup.Item>
 			</ListGroup>
 		</Card>
