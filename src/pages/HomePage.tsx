@@ -6,6 +6,7 @@ import * as TmdbAPI from "../services/TMDB-API"
 import MovieCard from "../components/MovieCard"
 import Navigation from "../components/Navigation"
 import '../assets/scss/App.scss'
+import Pagination from "../components/Pagination"
 
 const HomePage = () => {
 
@@ -19,7 +20,7 @@ const HomePage = () => {
 					<h2>Most Popular Movies</h2>
 					<Row className="g-4 row row-cols-xxl-4 row-cols-lg-3 row-cols-md-2 row-cols-1">
 						{data?.results.map(hit => (
-							<Col  key={hit.id}>
+							<Col key={hit.id}>
 								<MovieCard
 									poster_path={hit.poster_path}
 									vote_average={hit.vote_average}
@@ -30,6 +31,13 @@ const HomePage = () => {
 						))}
 					</Row>
 				</Container>
+				<Pagination
+					page={data?.page}
+					total_pages={data?.total_pages}
+					hasPreviousPage={}
+					hasNextPage={}
+					onPreviousPage={}
+					onNextPage={}/>
 			</Container>
 		</>
 	)
