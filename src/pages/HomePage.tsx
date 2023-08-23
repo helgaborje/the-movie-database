@@ -5,6 +5,7 @@ import Row from 'react-bootstrap/Row'
 import * as TmdbAPI from "../services/TMDB-API"
 import MovieCard from "../components/MovieCard"
 import Navigation from "../components/Navigation"
+import '../assets/scss/App.scss'
 
 const HomePage = () => {
 
@@ -12,11 +13,13 @@ const HomePage = () => {
 
 	return (
 		<>
-			<Navigation/>
+			<Navigation />
 			<Container>
-				<Row xs={1} md={2} lg={3} xxl={4} className="g-4">
+				<Container>
+					<h2>Most Popular Movies</h2>
+					<Row className="g-4 row row-cols-xxl-4 row-cols-lg-3 row-cols-md-2 row-cols-1">
 						{data?.results.map(hit => (
-							<Col lg={3} md={4} sm={10} key={hit.id}>
+							<Col  key={hit.id}>
 								<MovieCard
 									poster_path={hit.poster_path}
 									vote_average={hit.vote_average}
@@ -26,6 +29,7 @@ const HomePage = () => {
 							</Col>
 						))}
 					</Row>
+				</Container>
 			</Container>
 		</>
 	)
