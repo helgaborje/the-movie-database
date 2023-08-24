@@ -2,7 +2,7 @@ import React from 'react'
 import Button from 'react-bootstrap/Button'
 
 interface IPaginationProps {
-	page?: number
+	page?: number | null
 	total_pages?: number
 	hasPreviousPage: boolean
 	hasNextPage: boolean

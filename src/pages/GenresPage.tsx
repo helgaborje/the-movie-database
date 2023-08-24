@@ -1,11 +1,14 @@
 import * as TmdbAPI from "../services/TMDB-API"
 import { useQuery } from "@tanstack/react-query"
-import { Container, Row, Col, Button } from "react-bootstrap"
+import { Container, Row, Col } from "react-bootstrap"
 import Navigation from "../components/Navigation"
 import { Link } from "react-router-dom"
 
 const GenresPage = () => {
-	const { data: genres } = useQuery(['genres'], () => TmdbAPI.getGenres())
+	const { data: genres } = useQuery(
+		['genres'],
+		() => TmdbAPI.getGenres()
+		)
 
 	return (
 		<>
@@ -28,28 +31,10 @@ const GenresPage = () => {
 								</Col>
 							))}
 						</Row>
-
-
-					
 					</Container>
-
-
 				)}
 			</Container>
-		
-		{/* <Pagination
-			page={data?.page}
-			total_pages={data?.total_pages}
-			hasPreviousPage={hasPreviousPage}
-			hasNextPage={hasNextPage}
-			onPreviousPage={() => {
-				setPage((prevPage) => prevPage - 1)
-			}}
-			onNextPage={() => {
-				setPage((prevPage) => prevPage + 1)
-			}}
-			/> */}
-			</>
+		</>
 	)
 }
 
