@@ -12,6 +12,7 @@ const App = () => {
 	return (
 		<>
 			<Navigation />
+			<LoadingSpinner />
 			<Container>
 			<Routes>
 				<Route path='/' element={<HomePage />} />
@@ -19,7 +20,7 @@ const App = () => {
 				<Route path='/genres/:name/:id' element={<MovieByGenrePage/>} />
 				</Routes>
 			</Container>
-			<LoadingSpinner />
+			
 			<ReactQueryDevtools initialIsOpen={false} position="bottom-right" />
 		</>
 	)

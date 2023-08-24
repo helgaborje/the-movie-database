@@ -11,27 +11,25 @@ const GenresPage = () => {
 
 	return (
 		<>
-			<Container>
-				{genres && (
-					<Container>
-						<h2>Find movie by genre</h2>
-						<Row>
-							{genres.genres.map(genre => (
-								<Col lg={3} md={4} sm={10}
-									key={genre.id}
-									className="pb-5"
-								>
-									<div className="d-flex justify-content-center">
-										<Link to={`/genres/${genre.name}/${genre.id}`}>
-											{genre.name}
-											</Link>
-									</div>
-								</Col>
-							))}
-						</Row>
-					</Container>
-				)}
-			</Container>
+			{genres && (
+				<Container>
+					<h2>Find movie by genre</h2>
+					<Row>
+						{genres.genres.map(genre => (
+							<Col
+								lg={3} md={4} sm={10}
+								key={genre.id}
+							>
+								<div className="d-flex justify-content-center">
+									<Link to={`/genres/${genre.name}/${genre.id}`}>
+										{genre.name}
+										</Link>
+								</div>
+							</Col>
+						))}
+					</Row>
+				</Container>
+			)}
 		</>
 	)
 }

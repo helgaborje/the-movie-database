@@ -19,9 +19,9 @@ const MovieCard: React.FC<MovieCardProps> = ({
 	const imageUrl = 'https://image.tmdb.org/t/p/w500'
 
 	return (
-		<Card style={{ width: '17rem'  }} >
+		<Card style={{ width: '10rem'  }} >
 			<ListGroup>
-				<ListGroup.Item className='movie-card' style={{ height: '31rem' }}  >
+				<ListGroup.Item className='movie-card' style={{ height: '24rem' }}  >
 						<Card.Img
 							src={imageUrl + poster_path}
 						/>
