@@ -3,6 +3,7 @@ import { MoviesResponse } from "../types/TMDB-API.movies.types"
 import { GenresResponse } from "../types/TMDB-API.genres.types"
 
 const API_KEY = import.meta.env.VITE_API_KEY
+const DELAY = 2500
 const adultContent = "&include_adult=false"
 
 const instance = axios.create({
@@ -16,6 +17,9 @@ const instance = axios.create({
 
 export const get = async <T>(endpoint: string) => {
     const response = await instance.get(endpoint)
+
+    !!DELAY && await new Promise(resolve => setTimeout(resolve, DELAY))
+
     return response.data as T
 }
 

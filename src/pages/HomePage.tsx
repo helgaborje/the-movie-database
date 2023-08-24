@@ -4,9 +4,6 @@ import Container from "react-bootstrap/Container"
 import Row from 'react-bootstrap/Row'
 import * as TmdbAPI from "../services/TMDB-API"
 import MovieCard from "../components/MovieCard"
-import Navigation from "../components/Navigation"
-import '../assets/scss/App.scss'
-
 
 const HomePage = () => {
 
@@ -14,7 +11,6 @@ const HomePage = () => {
 
 	return (
 		<>
-			<Navigation />
 			<Container>
 				<Container>
 					<h2>Most Popular Movies</h2>

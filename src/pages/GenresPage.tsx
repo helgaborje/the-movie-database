@@ -1,18 +1,16 @@
 import * as TmdbAPI from "../services/TMDB-API"
 import { useQuery } from "@tanstack/react-query"
 import { Container, Row, Col } from "react-bootstrap"
-import Navigation from "../components/Navigation"
 import { Link } from "react-router-dom"
 
 const GenresPage = () => {
-	const { data: genres } = useQuery(
+	const { data: genres, isLoading } = useQuery(
 		['genres'],
 		() => TmdbAPI.getGenres()
-		)
+	)
 
 	return (
 		<>
-		<Navigation />
 			<Container>
 				{genres && (
 					<Container>
