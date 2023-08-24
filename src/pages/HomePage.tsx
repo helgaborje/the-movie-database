@@ -6,7 +6,7 @@ import * as TmdbAPI from "../services/TMDB-API"
 import MovieCard from "../components/MovieCard"
 import Navigation from "../components/Navigation"
 import '../assets/scss/App.scss'
-import Pagination from "../components/Pagination"
+
 
 const HomePage = () => {
 
@@ -31,13 +31,6 @@ const HomePage = () => {
 						))}
 					</Row>
 				</Container>
-				<Pagination
-					page={data?.page}
-					total_pages={data?.total_pages}
-					hasPreviousPage={}
-					hasNextPage={}
-					onPreviousPage={}
-					onNextPage={}/>
 			</Container>
 		</>
 	)
