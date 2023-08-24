@@ -20,10 +20,11 @@ const GenresPage = () => {
 									key={genre.id}
 									className="pb-5"
 								>
-									<Button className="d-flex justify-content-center">
-										<Link to={`/genres/${genre.name}/${genre.id}`} />
-										{genre.name}
-									</Button>
+									<div className="d-flex justify-content-center">
+										<Link to={`/genres/${genre.name}/${genre.id}`}>
+											{genre.name}
+											</Link>
+									</div>
 								</Col>
 							))}
 						</Row>
