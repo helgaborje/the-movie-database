@@ -1,6 +1,7 @@
 import React from 'react'
 import Card from 'react-bootstrap/Card'
-import ListGroup from 'react-bootstrap/ListGroup'
+
+import {AiFillStar} from 'react-icons/ai'
 
 interface MovieCardProps {
 	poster_path: string
@@ -19,18 +20,14 @@ const MovieCard: React.FC<MovieCardProps> = ({
 	const imageUrl = 'https://image.tmdb.org/t/p/w500'
 
 	return (
-		<Card style={{ width: '10rem'  }} >
-			<ListGroup>
-				<ListGroup.Item className='movie-card' style={{ height: '24rem' }}  >
-						<Card.Img
-							src={imageUrl + poster_path}
-						/>
-						<Card.Subtitle>{vote_average}</Card.Subtitle>
-						<Card.Title>{title}</Card.Title>
-						<Card.Text>{release_date}</Card.Text>
-				</ListGroup.Item>
-			</ListGroup>
-		</Card>
+		<>
+			<Card border='dark' className='bg-dark movie-card'>
+				<img className='movie-img' src={imageUrl + poster_path} />
+			</Card>
+			<p><AiFillStar /> {vote_average}</p>
+			<h2 className='m-0 mb-1 ms-1'>{title}</h2>
+			<span className='m-0 mb-1 ms-1'>{release_date}</span>
+		</>
 	)
 }
 

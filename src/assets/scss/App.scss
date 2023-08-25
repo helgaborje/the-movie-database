@@ -4,17 +4,31 @@ h1, h2, h3, h4, h5, h6 {
 	margin-bottom: 0.75em;
 	margin-top: 0.75em;
 }
+
+h2 {
+	font-size: 1rem;
+}
 body {
 	text-decoration: none;
 	background-color: #020202;
 	color: white;
 }
-.movie-card {
-	color: white;
-	background-color: black;
-	border: 0px;
+
+.card-container {
+	background-color: rgb(32, 32, 32);
 }
 
 .loading-spinner {
 	margin-top: 0.75em;
+}
+
+.movie-card {
+	border: none;
+	padding: 0;
+	margin-bottom: 15px;
+}
+
+.movie-img {
+	-webkit-box-shadow: 5px 5px 15px -2px #000000;
+	box-shadow: 5px 5px 15px -2px #000000;
 }

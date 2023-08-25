@@ -11,14 +11,16 @@ const HomePage = () => {
 
 	return (
 		<>
-			<Container>
-				<h2>Most Popular Movies</h2>
-				<Row className="g-4">
+			<Container
+			className="card-container">
+					<h1>Most Popular Movies</h1>
+				<Row className="g-4 justify-content-center">
 					{data?.results.map(hit => (
 						<Col
 							lg={3} md={4} sm={6}
 							key={hit.id}
-						>
+							style={{ width: '10rem'  }}
+							>
 							<MovieCard
 								poster_path={hit.poster_path}
 								vote_average={hit.vote_average}
