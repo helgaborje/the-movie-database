@@ -4,33 +4,80 @@ import Container from "react-bootstrap/Container"
 import Row from 'react-bootstrap/Row'
 import * as TmdbAPI from "../services/TMDB-API"
 import MovieCard from "../components/MovieCard"
+import Alert from "react-bootstrap/Alert"
 
 const HomePage = () => {
 
-	const {data} = useQuery(['movies'], TmdbAPI.getPopularMovies )
+	const { data: popular,  isLoading, isError } = useQuery(['popular'], TmdbAPI.getPopularMovies)
+	const { data: rated } = useQuery(['rated'], TmdbAPI.getTopRatedMovies)
+	const { data: playing } = useQuery(['now-playing'], TmdbAPI.getNowPlayingMovies )
 
 	return (
 		<>
-			<Container
-			className="card-container">
+			{isError && <Alert variant='warning'>Something went wrong</Alert>}
+			{!isLoading && (
+				<>
+					<Container
+					className="card-container">
 					<h1>Most Popular Movies</h1>
-				<Row className="g-4 justify-content-center">
-					{data?.results.map(hit => (
-						<Col
-							lg={3} md={4} sm={6}
-							key={hit.id}
-							style={{ width: '10rem'  }}
+					<Row className="g-4 justify-content-center">
+						{popular?.results.map(hit => (
+							<Col
+								lg={3} md={4} sm={6}
+								key={hit.id}
+								style={{ width: '10rem' }}
 							>
-							<MovieCard
-								poster_path={hit.poster_path}
-								vote_average={hit.vote_average}
-								title={hit.title}
-								release_date={hit.release_date}
-							/>
-						</Col>
-					))}
-				</Row>
-			</Container>
+								<MovieCard
+									poster_path={hit.poster_path}
+									vote_average={hit.vote_average}
+									title={hit.title}
+									release_date={hit.release_date} />
+							</Col>
+						))}
+					</Row>
+					</Container>
+
+					<Container
+					className="card-container">
+						<h1>Top Rated Movies</h1>
+						<Row className="g-4 justify-content-center">
+							{rated?.results.map(hit => (
+								<Col
+									lg={3} md={4} sm={6}
+									key={hit.id}
+									style={{ width: '10rem' }}
+								>
+									<MovieCard
+										poster_path={hit.poster_path}
+										vote_average={hit.vote_average}
+										title={hit.title}
+										release_date={hit.release_date} />
+								</Col>
+							))}
+						</Row>
+					</Container>
+
+					<Container
+					className="card-container">
+						<h1>Now in Cinemas</h1>
+						<Row className="g-4 justify-content-center">
+							{playing?.results.map(hit => (
+								<Col
+									lg={3} md={4} sm={6}
+									key={hit.id}
+									style={{ width: '10rem' }}
+								>
+									<MovieCard
+										poster_path={hit.poster_path}
+										vote_average={hit.vote_average}
+										title={hit.title}
+										release_date={hit.release_date} />
+								</Col>
+							))}
+						</Row>
+					</Container>
+				</>
+			)}
 		</>
 	)
 }
