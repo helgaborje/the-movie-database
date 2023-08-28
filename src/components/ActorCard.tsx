@@ -1,6 +1,5 @@
 import React from 'react'
 import Card from 'react-bootstrap/Card'
-
 import { Link } from 'react-router-dom'
 
 interface ActorCardProps {
@@ -18,19 +17,17 @@ const ActorCard: React.FC<ActorCardProps> = ({
 }) => {
 
 	const imageUrl = 'https://image.tmdb.org/t/p/w300'
-	console.log(profile_path)
 
 	return (
 		<>
 			<Link to={`/person/${id}`}>
-
-			<Card border='dark' className='bg-dark movie-card'>
-				<img className='movie-img' src={imageUrl + profile_path} />
-			</Card>
-			<h2 className='m-0 mb-1 ms-1'>{name}</h2>
-			<span className='m-0 mb-1 ms-1'>as {character}</span>
+				<Card border='dark' className='bg-dark movie-card'>
+					<img className='movie-img' src={imageUrl + profile_path} />
+				</Card>
+				<h2 className='m-0 mb-1 ms-1'>{name}</h2>
+				<span className='m-0 mb-1 ms-1'>as {character}</span>
 			</Link>
-			</>
+		</>
 	)
 }
 

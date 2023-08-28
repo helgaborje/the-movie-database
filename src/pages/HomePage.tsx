@@ -15,10 +15,9 @@ const HomePage = () => {
 	return (
 		<>
 			{isError && <Alert variant='warning'>Something went wrong</Alert>}
-			{!isLoading && (
+			{!isLoading && !isError && (
 				<>
-					<Container
-					className="card-container">
+					<Container className="card-container">
 					<h1>Most Popular Movies</h1>
 					<Row className="g-4 justify-content-center">
 						{popular?.results.map(hit => (
@@ -38,8 +37,7 @@ const HomePage = () => {
 					</Row>
 					</Container>
 
-					<Container
-					className="card-container">
+					<Container className="card-container">
 						<h1>Top Rated Movies</h1>
 						<Row className="g-4 justify-content-center">
 							{rated?.results.map(hit => (
@@ -59,8 +57,7 @@ const HomePage = () => {
 						</Row>
 					</Container>
 
-					<Container
-					className="card-container">
+					<Container className="card-container">
 						<h1>Now in Cinemas</h1>
 						<Row className="g-4 justify-content-center">
 							{playing?.results.map(hit => (
@@ -70,6 +67,7 @@ const HomePage = () => {
 									style={{ width: '10rem' }}
 								>
 									<MovieCard
+										id={hit.id}
 										poster_path={hit.poster_path}
 										vote_average={hit.vote_average}
 										title={hit.title}
