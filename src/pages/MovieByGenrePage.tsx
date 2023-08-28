@@ -27,10 +27,14 @@ const MovieByGenrePage = () => {
 					<h2>{name}</h2>
 					<Row className="g-4 row row-cols-xxl-4 row-cols-lg-3 row-cols-md-2 row-cols-1">
 						{data?.results.map(hit => (
-							<Col key={hit.id}>
+							<Col
+								lg={3} md={4} sm={6}
+								key={hit.id}
+							>
 								<MovieCard
 									id={hit.id}
 									poster_path={hit.poster_path}
+									vote_average={hit.vote_average}
 									title={hit.title}
 									release_date={hit.release_date}
 								/>
