@@ -1,17 +1,19 @@
 import * as TmdbAPI from "../services/TMDB-API"
 import { useQuery } from "@tanstack/react-query"
-import { Container, Row, Col } from "react-bootstrap"
+import { Container, Row, Col, Alert } from "react-bootstrap"
 import { Link } from "react-router-dom"
 
 const GenresPage = () => {
-	const { data: genres, isLoading } = useQuery(
+	const { data: genres, isError, isLoading } = useQuery(
 		['genres'],
 		() => TmdbAPI.getGenres()
 	)
 
 	return (
 		<>
-			{genres && (
+						{isError && <Alert variant='warning'>Something went wrong</Alert>}
+			{!isLoading && !isError && (
+			
 				<Container>
 					<h2>Find movie by genre</h2>
 					<Row>
@@ -29,7 +31,7 @@ const GenresPage = () => {
 						))}
 					</Row>
 				</Container>
-			)}
+				)}
 		</>
 	)
 }
