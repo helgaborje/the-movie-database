@@ -4,7 +4,7 @@ import Card from 'react-bootstrap/Card'
 import { Link } from 'react-router-dom'
 
 interface ActorCardProps {
-	id?: number
+	id: number
 	profile_path: string
 	name?: string
 	character: string
@@ -22,7 +22,7 @@ const ActorCard: React.FC<ActorCardProps> = ({
 
 	return (
 		<>
-			<Link to={`/movie/${id}`}>
+			<Link to={`/person/${id}`}>
 
 			<Card border='dark' className='bg-dark movie-card'>
 				<img className='movie-img' src={imageUrl + profile_path} />

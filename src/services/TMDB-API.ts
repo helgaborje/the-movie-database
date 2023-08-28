@@ -2,6 +2,7 @@ import axios from "axios"
 import { MoviesResponse } from "../types/TMDB-API.movies.types"
 import { GenresResponse } from "../types/TMDB-API.genres.types"
 import { Movie } from "../types/TMDB-API.movie-info.types"
+import { Actor } from "../types/TMDB-API.actor-info.types"
 
 const API_KEY = import.meta.env.VITE_API_KEY
 const DELAY = 2500
@@ -46,4 +47,8 @@ export const getMovieByGenre = async (page: number, genreId: number) => {
 
 export const getMovieById = async (movieId: number) => {
     return get<Movie>(`movie/${movieId}?api_key=${API_KEY}&region=se&language=en-US&${adultContent}&append_to_response=credits`)
+}
+
+export const getActorById = async (actorId: number) => {
+    return get<Actor>(`person/${actorId}?api_key=${API_KEY}&region=se&language=en-US&${adultContent}&append_to_response=movie_credits`)
 }
