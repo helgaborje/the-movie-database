@@ -11,11 +11,11 @@ const GenresPage = () => {
 
 	return (
 		<>
-						{isError && <Alert variant='warning'>Something went wrong</Alert>}
+			{isError && <Alert variant='warning'>Something went wrong</Alert>}
 			{!isLoading && !isError && (
 			
 				<Container>
-					<h2>Find movie by genre</h2>
+					<h1>Find movie by genre</h1>
 					<Row>
 						{genres.genres.map(genre => (
 							<Col
@@ -23,7 +23,9 @@ const GenresPage = () => {
 								key={genre.id}
 							>
 								<div className="d-flex justify-content-center">
-									<Link to={`/genres/${genre.name}/${genre.id}`}>
+									<Link
+										className="genres-buttons"
+										to={`/genres/${genre.name}/${genre.id}`}>
 										{genre.name}
 										</Link>
 								</div>

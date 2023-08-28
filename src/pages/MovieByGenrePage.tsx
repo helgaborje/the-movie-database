@@ -24,7 +24,7 @@ const MovieByGenrePage = () => {
 		<>
 			<Container>
 				<Container>
-					<h2>{name}</h2>
+					<h1>{name}</h1>
 					<Row className="g-4 row row-cols-xxl-4 row-cols-lg-3 row-cols-md-2 row-cols-1">
 						{data?.results.map(hit => (
 							<Col
