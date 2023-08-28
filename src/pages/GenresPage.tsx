@@ -33,7 +33,7 @@ const GenresPage = () => {
 						))}
 					</Row>
 				</Container>
-				)}
+			)}
 		</>
 	)
 }
