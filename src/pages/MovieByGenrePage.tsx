@@ -15,7 +15,7 @@ const MovieByGenrePage = () => {
 		: 1
 	
 	const { data } = useQuery(
-		['moviegenre', { page, genreId }],
+		['genres', { page, genreId }],
 		() => TmdbAPI.getMovieByGenre(page, genreId)
 	)
 
@@ -29,6 +29,7 @@ const MovieByGenrePage = () => {
 						{data?.results.map(hit => (
 							<Col key={hit.id}>
 								<MovieCard
+									id={hit.id}
 									poster_path={hit.poster_path}
 									title={hit.title}
 									release_date={hit.release_date}

@@ -7,6 +7,7 @@ import MovieByGenrePage from './pages/MovieByGenrePage'
 import Navigation from './components/Navigation'
 import LoadingSpinner from './components/LoadingSpinner'
 import { Container } from 'react-bootstrap'
+import MovieInfoPage from './pages/MovieInfoPage'
 
 const App = () => {
 	return (
@@ -17,7 +18,8 @@ const App = () => {
 			<Routes>
 				<Route path='/' element={<HomePage />} />
 				<Route path='/genres' element={<GenresPage />} />
-				<Route path='/genres/:name/:id' element={<MovieByGenrePage/>} />
+					<Route path='/genres/:name/:id' element={<MovieByGenrePage />} />
+					<Route path='/movie/:id' element={<MovieInfoPage />} />
 				</Routes>
 			</Container>
 			
