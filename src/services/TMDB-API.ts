@@ -24,21 +24,21 @@ export const get = async <T>(endpoint: string) => {
 }
 
 export const getGenres = async () => {
-    return get<GenresResponse>(`genre/movie/list?api_key=${API_KEY}&language=en-US&${adultContent}`)
+    return get<GenresResponse>(`genre/movie/list?api_key=${API_KEY}&region=se&language=en-US&${adultContent}`)
 }
 
 export const getPopularMovies = async () => {
-    return get<MoviesResponse>(`movie/popular?api_key=${API_KEY}&language=en-US&${adultContent}`)
+    return get<MoviesResponse>(`movie/popular?api_key=${API_KEY}&region=se&language=en-US&${adultContent}`)
 }
 
 export const getTopRatedMovies = async () => {
-    return get<MoviesResponse>(`movie/top_rated?api_key=${API_KEY}&language=en-US&${adultContent}`)
+    return get<MoviesResponse>(`movie/top_rated?api_key=${API_KEY}&region=se&language=en-US&${adultContent}`)
 }
 
 export const getNowPlayingMovies = async () => {
-    return get<MoviesResponse>(`movie/now_playing?api_key=${API_KEY}&language=en-US&${adultContent}`)
+    return get<MoviesResponse>(`movie/now_playing?api_key=${API_KEY}&region=se&language=en-US&${adultContent}`)
 }
 
 export const getMovieByGenre = async (page: number, genreId: number) => {
-    return get<MoviesResponse>(`/discover/movie?api_key=${API_KEY}&language=en-US&sort_by=release_date.desc&page=${page}&with_genres=${genreId}${adultContent}`)
+    return get<MoviesResponse>(`/discover/movie?api_key=${API_KEY}&language=en-US&sort_by=release_date.desc&page=${page}&region=se&with_genres=${genreId}${adultContent}`)
 }
