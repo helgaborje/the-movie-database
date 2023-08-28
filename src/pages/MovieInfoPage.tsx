@@ -1,7 +1,9 @@
 import { useQuery } from "@tanstack/react-query"
 import * as TmdbAPI from "../services/TMDB-API"
-import { Badge, Button, Col, Container } from "react-bootstrap"
+import { Badge, Button, Col, Container, Row } from "react-bootstrap"
 import { Link, useParams } from "react-router-dom"
+import ActorCard from "../components/ActorCard"
+import { Cast } from "../types/TMDB-API.movie-info.types"
 
 const MovieInfoPage = () => {
 	const { id } = useParams()
@@ -34,7 +36,29 @@ const MovieInfoPage = () => {
 								</Badge>
 							))}
 						</div>
-						<p>{data?.overview }</p>
+						<p>{data?.overview}</p>
+						<div>
+							<h2>Cast:</h2>
+							<Row>
+								{data?.credits.cast.map((actor: Cast) => (
+									<Col
+										lg={2}
+										md={4}
+										sm={6}
+										key={actor.id}
+									
+									><ActorCard
+											name={actor.name}
+											profile_path={actor.profile_path}
+											character={actor.character}
+										/>
+									
+									</Col>
+								))
+
+								}
+							</Row>
+						</div>
 					</div>
 				</div>
 			</Container>

@@ -8,9 +8,19 @@ export type Movie = {
     runtime: number
     overview: string
     vote_average?: number
+    credits: {
+        cast: Cast[]
+    }
 }
 
 export type Genres = {
     id: number
     name: string
+}
+
+export type Cast = {
+    id: number
+    profile_path: string
+    name: string
+    character: string
 }

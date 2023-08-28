@@ -45,5 +45,5 @@ export const getMovieByGenre = async (page: number, genreId: number) => {
 }
 
 export const getMovieById = async (movieId: number) => {
-    return get<Movie>(`movie/${movieId}?api_key=${API_KEY}&region=se&language=en-US&${adultContent}`)
+    return get<Movie>(`movie/${movieId}?api_key=${API_KEY}&region=se&language=en-US&${adultContent}&append_to_response=credits`)
 }
