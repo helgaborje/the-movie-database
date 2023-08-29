@@ -52,3 +52,8 @@ export const getMovieById = async (movieId: number) => {
 export const getActorById = async (actorId: number) => {
     return get<Actor>(`person/${actorId}?api_key=${API_KEY}&region=se&language=en-US&${adultContent}&append_to_response=movie_credits`)
 }
+
+export const getSearchMovies = async (query: string, page: 1) => {
+    return get<MoviesResponse>(`search/movie?api_key=${API_KEY}&region=se&language=en-US&${adultContent}&query=${query}&page=${page}`)
+}
+
