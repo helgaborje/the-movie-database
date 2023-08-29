@@ -4,6 +4,7 @@ import Nav from 'react-bootstrap/Nav'
 import {Link, NavLink} from 'react-router-dom'
 
 const Navigation = () => {
+
 	return (
 		<Navbar className='navbar' bg="dark" variant="dark" expand="md">
 			<Container>
@@ -12,8 +13,8 @@ const Navigation = () => {
 				<Navbar.Toggle aria-controls="basic-navbar-nav" />
 				<Navbar.Collapse id="basic-navbar-nav">
 				<Nav className="ms-auto">
-						<Nav.Link as={NavLink} end to="/genres">Genres</Nav.Link>
-						<Nav.Link as={NavLink} end to="/search">Search</Nav.Link>
+					<Nav.Link as={NavLink} end to="/genres">Genres</Nav.Link>
+					<Nav.Link as={NavLink} end to="/search">Search</Nav.Link>
 				</Nav>
 				</Navbar.Collapse>
 			</Container>

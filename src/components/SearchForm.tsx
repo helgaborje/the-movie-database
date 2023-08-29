@@ -13,7 +13,7 @@ interface SearchFormProps  {
 const SearchForm: React.FC<SearchFormProps> = ({ value, onChange, onSubmit }) => {
 	return (
 		<>
-			<Form className='mb-4' onSubmit={onSubmit}>
+			<Form className='mb-1' onSubmit={onSubmit}>
 				<Row>
 					<Col xs="auto">
 						<Form.Control
@@ -21,7 +21,7 @@ const SearchForm: React.FC<SearchFormProps> = ({ value, onChange, onSubmit }) =>
 							value={value}
 							type="text"
 							placeholder="Search for movie"
-							className=" mr-sm-2"
+							className="mr-sm-2"
 						/>
 					</Col>
 					<Col xs="auto">

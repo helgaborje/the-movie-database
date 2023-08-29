@@ -9,6 +9,7 @@ import LoadingSpinner from './components/LoadingSpinner'
 import { Container } from 'react-bootstrap'
 import MovieInfoPage from './pages/MovieInfoPage'
 import ActorInfoPage from './pages/ActorInfoPage'
+import SearchPage from './pages/SearchPage'
 
 const App = () => {
 	return (
@@ -22,6 +23,7 @@ const App = () => {
 					<Route path='/genres/:name/:id' element={<MovieByGenrePage />} />
 					<Route path='/movie/:id' element={<MovieInfoPage />} />
 					<Route path='/person/:id' element={<ActorInfoPage />} />
+					<Route path='/search' element={<SearchPage />} />
 				</Routes>
 			</Container>
 			
