@@ -7,7 +7,7 @@ const LoadingSpinner = () => {
 		<div className='loading-spinner d-flex justify-content-center align-items-center'
 			style={{ height: '30vh' }}>
 			<img
-				src="https://thumbs.gfycat.com/AntiqueLightheartedIbizanhound-max-1mb.gif"
+				src="https://i.pinimg.com/originals/db/40/ee/db40eeccca850e5998f50a633d67b34b.gif"
                 alt="Loading Spinner"
 				style={{ width: '200px' }}
 			/>
@@ -16,3 +16,6 @@ const LoadingSpinner = () => {
 }
 
 export default LoadingSpinner
+
+
+// src="https://thumbs.gfycat.com/AntiqueLightheartedIbizanhound-max-1mb.gif"

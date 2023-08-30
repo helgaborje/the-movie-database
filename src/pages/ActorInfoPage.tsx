@@ -36,6 +36,7 @@ const ActorInfoPage = () => {
 											<MovieCard
 												id={hit.id}
 												poster_path={hit.poster_path}
+												vote_average={hit.vote_average}
 												title={hit.title} />
 										</Col>
 									))}

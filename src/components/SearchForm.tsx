@@ -19,8 +19,8 @@ const SearchForm: React.FC<SearchFormProps> = ({ onHandlseSearch }) => {
 
 	return (
 		<>
-			<Form className='mb-1' onSubmit={handleSubmit}>
-				<div className="d-flex justify-content-end">
+			<Form className='mb-4' onSubmit={handleSubmit}>
+				<div className="m-2">
 					<Form.Group className="mb-3" controlId="querySearch">
 						<Form.Control
 							onChange={e => setSearchInput(e.target.value) }
@@ -28,14 +28,16 @@ const SearchForm: React.FC<SearchFormProps> = ({ onHandlseSearch }) => {
 							placeholder="Search for movie"
 							value={searchInput}
 						/>
+					</Form.Group>
+					<div className="d-flex justify-content-end">
 						<Button
 							className='button'
-							variant="outline-warning"
+							variant="outline-success"
 							type="submit"
 							disabled={!searchInput.trim().length}
 						>Search</Button>
-					</Form.Group>
-              </div>
+					</div>
+				</div>
 			</Form>
 		</>
 	)

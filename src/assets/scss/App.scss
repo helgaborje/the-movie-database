@@ -23,6 +23,7 @@ h2 {
 
 a {
 	text-decoration: none;
+	color: white;
 }
 
 
@@ -57,4 +58,8 @@ a {
 	border-radius: 2px;
 	-webkit-box-shadow: 5px 5px 15px -2px #000000;
 	box-shadow: 5px 5px 15px -2px #000000;
+}
+
+.rating-star {
+	color: #f5c518;
 }

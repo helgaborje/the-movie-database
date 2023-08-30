@@ -36,7 +36,7 @@ const SearchPage = () => {
 				<>
 					<h1>Search result</h1><div id="results">
 						{result.results.length > 0 && query ? (
-							<p>Showing {result.total_results} query results for {query}...</p>
+							<p>Showing {result.total_results} search results for {query}...</p>
 						) : (query && <p>No results found for {query}.</p>)}
 						<Row className="g-4 row row-cols-xxl-4 row-cols-lg-3 row-cols-md-2 row-cols-1">
 							{result?.results.map(hit => (
