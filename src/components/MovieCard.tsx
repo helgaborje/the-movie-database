@@ -7,8 +7,8 @@ interface MovieCardProps {
 	id: number
 	poster_path: string
 	title: string
-	vote_average: number
-	release_date: number
+	vote_average?: number
+	release_date?: number
 }
 
 const MovieCard: React.FC<MovieCardProps> = ({
@@ -23,6 +23,11 @@ const MovieCard: React.FC<MovieCardProps> = ({
 	const releaseYear = new Date(release_date).getFullYear()
 
 	const imageUrl = 'https://image.tmdb.org/t/p/w500'
+	// const placeholderImage = 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png'
+
+	// if (poster_path === null) {
+	// 	return 	<img className='placeholder-img' src='https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png' />
+	// }
 
 	return (
 		<>

@@ -29,8 +29,8 @@ export const getGenres = async () => {
     return get<GenresResponse>(`genre/movie/list?api_key=${API_KEY}&region=se&language=en-US&${adultContent}`)
 }
 
-export const getPopularMovies = async () => {
-    return get<MoviesResponse>(`trending/movie/day?api_key=${API_KEY}&region=se&language=en-US&${adultContent}`)
+export const getPopularMovies = async (data: string) => {
+    return get<MoviesResponse>(`trending/movie/${data}?api_key=${API_KEY}&region=se&language=en-US&${adultContent}`)
 }
 
 export const getTopRatedMovies = async () => {
@@ -57,3 +57,6 @@ export const getSearchMovies = async (query: string, page: number) => {
     return get<MoviesResponse>(`search/movie?api_key=${API_KEY}&region=se&language=en-US&${adultContent}&query=${query}&page=${page}`)
 }
 
+export const getSimilarMovies = async (movieId: number) => {
+    return get<MoviesResponse>(`movie/${movieId}/similar?api_key=${API_KEY}&region=se&language=en-US&${adultContent}`)
+}

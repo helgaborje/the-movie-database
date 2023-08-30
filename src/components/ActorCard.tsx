@@ -21,7 +21,7 @@ const ActorCard: React.FC<ActorCardProps> = ({
 	return (
 		<>
 			<Link to={`/person/${id}`}>
-				<Card border='dark' className='bg-dark movie-card'>
+				<Card border='dark' className='bg-dark actor-card'>
 					<img className='movie-img' src={imageUrl + profile_path} />
 				</Card>
 				<h2 className='m-0 mb-1 ms-1'>{name}</h2>

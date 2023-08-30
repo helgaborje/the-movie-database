@@ -8,6 +8,7 @@ export type Movie = {
     runtime: number
     overview: string
     vote_average?: number
+    director: string
     credits: {
         cast: Cast[]
     }

@@ -19,7 +19,8 @@ h1 {
 }
 
 h2 {
-	font-size: 1rem;
+	font-size: 1.2rem;
+	font-weight: 600;
 }
 
 a {
@@ -40,6 +41,13 @@ a {
 	border: none;
 	padding: 0;
 	margin-bottom: 15px;
+}
+
+.actor-card {
+	border: none;
+	padding: 0;
+	margin-bottom: 10px;
+	margin-top: 15px;
 }
 
 .movie-img {
@@ -64,3 +72,14 @@ a {
 .rating-star {
 	color: #f5c518;
 }
+
+.placeholder-img {
+	width: 200px;
+	height: 300px;
+}
+
+// .genre-badge {
+// 	background-color: #000000;
+// 	border: #000000;
+// 	border-radius: 2px;
+// }
