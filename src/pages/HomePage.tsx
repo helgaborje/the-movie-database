@@ -5,13 +5,22 @@ import Row from 'react-bootstrap/Row'
 import * as TmdbAPI from "../services/TMDB-API"
 import MovieCard from "../components/MovieCard"
 import Alert from "react-bootstrap/Alert"
+import { useSearchParams } from "react-router-dom"
+import Button from "react-bootstrap/esm/Button"
 
 const HomePage = () => {
-
-
-	const { data: popular,  isLoading, isError } = useQuery(['trending'], TmdbAPI.getPopularMovies)
+	const [searchParams, setSearchParams] = useSearchParams({
+		dayOrWeek: 'day', 
+	})
+	const dayOrWeek = searchParams.get('dayOrWeek')
+	
+	const { data: popular,  isLoading, isError } = useQuery(['trending', {dayOrWeek}],  () => TmdbAPI.getPopularMovies(dayOrWeek))
 	const { data: rated } = useQuery(['top-rated'], TmdbAPI.getTopRatedMovies)
 	const { data: playing } = useQuery(['now-playing'], TmdbAPI.getNowPlayingMovies )
+	
+	const handleDayOrWeekChange = (changeDayOrWeek: string) => {
+		setSearchParams({ dayOrWeek: changeDayOrWeek })
+	}
 
 	return (
 		<>
@@ -19,7 +28,20 @@ const HomePage = () => {
 			{!isLoading && !isError && (
 				<>
 					<Container className="card-container">
-					<h1>Most Popular Movies</h1>
+						<h1>Now Trending Movies</h1>
+						<div className="trending-btn-container">
+							<Button
+								className="trending-btn"
+								onClick={() => handleDayOrWeekChange("day")}
+								variant={dayOrWeek === "day" ? "light" : "outline-light"}
+							>Today</Button>
+							<Button
+								className="trending-btn"
+								onClick={() => handleDayOrWeekChange("week")}
+								variant={dayOrWeek === "week" ? "light" : "outline-light"}
+							>This Week</Button>
+						</div>
+
 					<Row className="g-4 justify-content-center">
 						{popular?.results.map(hit => (
 							<Col
@@ -37,7 +59,7 @@ const HomePage = () => {
 						))}
 					</Row>
 					</Container>
-
+					<hr />
 					<Container className="card-container">
 						<h1>Top Rated Movies</h1>
 						<Row className="g-4 justify-content-center">
@@ -57,7 +79,7 @@ const HomePage = () => {
 							))}
 						</Row>
 					</Container>
-
+					<hr />
 					<Container className="card-container">
 						<h1>Now in Cinemas</h1>
 						<Row className="g-4 justify-content-center">

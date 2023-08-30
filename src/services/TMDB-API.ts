@@ -29,8 +29,8 @@ export const getGenres = async () => {
     return get<GenresResponse>(`genre/movie/list?api_key=${API_KEY}&region=se&language=en-US&${adultContent}`)
 }
 
-export const getPopularMovies = async (data: string) => {
-    return get<MoviesResponse>(`trending/movie/${data}?api_key=${API_KEY}&region=se&language=en-US&${adultContent}`)
+export const getPopularMovies = async (dayOrWeek: string) => {
+    return get<MoviesResponse>(`trending/movie/${dayOrWeek}?api_key=${API_KEY}&region=se&language=en-US&${adultContent}`)
 }
 
 export const getTopRatedMovies = async () => {

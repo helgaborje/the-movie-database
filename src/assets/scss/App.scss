@@ -7,14 +7,14 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-	margin-bottom: 0.75em;
-	margin-top: 0.75em;
+	margin-bottom: 0.5em;
+	// margin-top: 0.75em;
 }
 
 h1 {
 	font-size: 2em;
 	padding-top: 0.60em;
-	margin-left: 0.75em;
+	// margin-left: 0.75em;
 
 }
 
@@ -31,6 +31,7 @@ a {
 
 .card-container {
 	background-color: rgb(32, 32, 32);
+	padding: 2em;
 }
 
 .loading-spinner {
@@ -68,6 +69,15 @@ a {
 	-webkit-box-shadow: 5px 5px 15px -2px #000000;
 	box-shadow: 5px 5px 15px -2px #000000;
 }
+
+.trending-btn {
+	border-radius: 0;
+	margin-bottom: 0.75em;
+}
+
+// .trending-btn-container {
+// 	margin-left: 0.75em;
+// }
 
 .rating-star {
 	color: #f5c518;
