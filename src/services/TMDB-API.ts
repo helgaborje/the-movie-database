@@ -53,7 +53,7 @@ export const getActorById = async (actorId: number) => {
     return get<Actor>(`person/${actorId}?api_key=${API_KEY}&region=se&language=en-US&${adultContent}&append_to_response=movie_credits`)
 }
 
-export const getSearchMovies = async (query: string, page: 1) => {
+export const getSearchMovies = async (query: string, page: number) => {
     return get<MoviesResponse>(`search/movie?api_key=${API_KEY}&region=se&language=en-US&${adultContent}&query=${query}&page=${page}`)
 }
 

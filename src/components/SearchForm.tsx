@@ -1,33 +1,41 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Button from 'react-bootstrap/Button'
-import Col from 'react-bootstrap/Col'
 import Form from 'react-bootstrap/Form'
-import Row from 'react-bootstrap/Row'
 
 interface SearchFormProps  {
-    value: string
-    onChange: (e: any) => void
-    onSubmit: (e: React.FormEvent) => void
+	onHandlseSearch: (search: string) => void
 }
 
-const SearchForm: React.FC<SearchFormProps> = ({ value, onChange, onSubmit }) => {
+const SearchForm: React.FC<SearchFormProps> = ({ onHandlseSearch }) => {
+	const [searchInput, setSearchInput] = useState("")
+	
+	const handleSubmit = (e: React.FormEvent) => {
+		e.preventDefault()
+		if (!searchInput.trim().length) {
+			return
+		}
+		onHandlseSearch(searchInput)
+	}
+
 	return (
 		<>
-			<Form className='mb-1' onSubmit={onSubmit}>
-				<Row>
-					<Col xs="auto">
+			<Form className='mb-1' onSubmit={handleSubmit}>
+				<div className="d-flex justify-content-end">
+					<Form.Group className="mb-3" controlId="querySearch">
 						<Form.Control
-							onChange={onChange}
-							value={value}
+							onChange={e => setSearchInput(e.target.value) }
 							type="text"
 							placeholder="Search for movie"
-							className="mr-sm-2"
+							value={searchInput}
 						/>
-					</Col>
-					<Col xs="auto">
-						<Button type="submit">Submit</Button>
-					</Col>
-				</Row>
+						<Button
+							className='button'
+							variant="outline-warning"
+							type="submit"
+							disabled={!searchInput.trim().length}
+						>Search</Button>
+					</Form.Group>
+              </div>
 			</Form>
 		</>
 	)
