@@ -7,7 +7,7 @@ interface MovieCardProps {
 	id: number
 	poster_path: string
 	title: string
-	vote_average?: number
+	vote_average: number
 	release_date?: number
 }
 
@@ -19,6 +19,8 @@ const MovieCard: React.FC<MovieCardProps> = ({
 	release_date,
 }) => {
 
+	const rating = Math.round(vote_average * 10)/10
+
 	const imageUrl = 'https://image.tmdb.org/t/p/w500'
 
 	return (
@@ -27,7 +29,7 @@ const MovieCard: React.FC<MovieCardProps> = ({
 				<Card border='dark' className='bg-dark movie-card'>
 					<img className='movie-img' src={imageUrl + poster_path} />
 				</Card>
-				<p><AiFillStar className="rating-star" /> {vote_average}</p>
+				<p><AiFillStar className="rating-star" /> {rating}</p>
 				<h2 className='m-0 mb-1 ms-1'>{title}</h2>
 				<span className='m-0 mb-1 ms-1'>{release_date}</span>
 			</Link>
