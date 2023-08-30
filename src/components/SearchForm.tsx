@@ -32,7 +32,7 @@ const SearchForm: React.FC<SearchFormProps> = ({ onHandlseSearch }) => {
 					<div className="d-flex justify-content-end">
 						<Button
 							className='button'
-							variant="outline-success"
+							variant="outline-light"
 							type="submit"
 							disabled={!searchInput.trim().length}
 						>Search</Button>

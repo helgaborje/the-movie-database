@@ -8,8 +8,8 @@ import Alert from "react-bootstrap/Alert"
 
 const HomePage = () => {
 
-	const { data: popular,  isLoading, isError } = useQuery(['popular'], TmdbAPI.getPopularMovies)
-	const { data: rated } = useQuery(['rated'], TmdbAPI.getTopRatedMovies)
+	const { data: popular,  isLoading, isError } = useQuery(['trending'], TmdbAPI.getPopularMovies)
+	const { data: rated } = useQuery(['top-rated'], TmdbAPI.getTopRatedMovies)
 	const { data: playing } = useQuery(['now-playing'], TmdbAPI.getNowPlayingMovies )
 
 	return (
