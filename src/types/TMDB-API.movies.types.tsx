@@ -2,9 +2,9 @@ export type Movies = {
     id: number
     title: string
     poster_path: string
-    release_date?: number
+    release_date: number
     overview?: string
-    vote_average?: number
+    vote_average: number
 }
 
 export type MoviesResponse = {
