@@ -1,3 +1,7 @@
+import Slider from "react-slick"
+import "slick-carousel/slick/slick.css"
+import "slick-carousel/slick/slick-theme.css"
+
 import { useQuery } from "@tanstack/react-query"
 import Col from 'react-bootstrap/Col'
 import Container from "react-bootstrap/Container"
@@ -22,11 +26,37 @@ const HomePage = () => {
 		setSearchParams({ dayOrWeek: changeDayOrWeek })
 	}
 
+	const sliderSettings = {
+		slidesToShow: 5,
+		infinite: true,
+		responsive: [
+			{
+				breakpoint: 868,
+				settings: {
+					slidesToShow: 4,
+				},
+			},
+			{
+				breakpoint: 768,
+				settings: {
+					slidesToShow: 3,
+				},
+			},
+			{
+				breakpoint: 568,
+				settings: {
+					slidesToShow: 2,
+				},
+			},
+		],
+	}
+
 	return (
 		<>
 			{isError && <Alert variant='warning'>Something went wrong</Alert>}
 			{!isLoading && !isError && (
 				<>
+					
 					<Container className="card-container">
 						<h1>Now Trending Movies</h1>
 						<div className="trending-btn-container">
@@ -41,11 +71,13 @@ const HomePage = () => {
 								variant={dayOrWeek === "week" ? "light" : "outline-light"}
 							>This Week</Button>
 						</div>
-
-					<Row className="g-4 justify-content-center">
+							<div>
+							{/* <Row className="g-4 justify-content-center"> */}
+							<Slider className="movie-slider" {...sliderSettings}>
 						{popular?.results.map(hit => (
-							<Col
-								lg={3} md={4} sm={6}
+							<div
+								className="slider-item"
+								// lg={3} md={4} sm={6}
 								key={hit.id}
 								style={{ width: '10rem' }}
 							>
@@ -55,10 +87,12 @@ const HomePage = () => {
 									vote_average={hit.vote_average}
 									title={hit.title}
 									release_date={hit.release_date} />
-							</Col>
+							</div>
 						))}
-					</Row>
-					</Container>
+								</Slider>
+								{/* </Row> */}
+								</div>
+						</Container>
 					<hr />
 					<Container className="card-container">
 						<h1>Top Rated Movies</h1>
