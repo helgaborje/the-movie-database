@@ -36,8 +36,8 @@ const MovieCard: React.FC<MovieCardProps> = ({
 					<img className='movie-img' src={imageUrl + poster_path} />
 				</Card>
 				<p><AiFillStar className="rating-star" /> {rating}</p>
-				<h2 className='m-0 mb-1 ms-1'>{title}</h2>
 				<span className='m-0 mb-1 ms-1'>{releaseYear}</span>
+				<h2 className='m-0 mb-1 ms-1'>{title}</h2>
 			</Link>
 		</>
 	)

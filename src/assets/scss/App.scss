@@ -14,12 +14,10 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
 	font-size: 2em;
 	padding-top: 0.60em;
-	// margin-left: 0.75em;
-
 }
 
 h2 {
-	font-size: 1.2rem;
+	font-size: 1.1rem;
 	font-weight: 600;
 }
 
@@ -32,6 +30,7 @@ a {
 .card-container {
 	background-color: rgb(32, 32, 32);
 	padding: 2em;
+	margin: 2em;
 }
 
 .loading-spinner {
@@ -91,7 +90,7 @@ a {
 
   
   .slider-item {
-	padding: 0.2em;
-	background-color: #000000;
-	padding-bottom: 20px;
+	padding: 0.4em;
+	background-color: #252424;
+	height: 420px;
 }
