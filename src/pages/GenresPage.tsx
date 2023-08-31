@@ -1,13 +1,9 @@
-import * as TmdbAPI from "../services/TMDB-API"
-import { useQuery } from "@tanstack/react-query"
 import { Container, Row, Col, Alert } from "react-bootstrap"
 import { Link } from "react-router-dom"
+import useGenres from "../hooks/useGenres"
 
 const GenresPage = () => {
-	const { data: genres, isError, isLoading } = useQuery(
-		['genres'],
-		() => TmdbAPI.getGenres()
-	)
+	const { data: genres, isError, isLoading } = useGenres()
 
 	return (
 		<>
