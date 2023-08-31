@@ -1,6 +1,3 @@
-import Slider from "react-slick"
-import "slick-carousel/slick/slick.css"
-import "slick-carousel/slick/slick-theme.css"
 import { useQuery } from "@tanstack/react-query"
 import Container from "react-bootstrap/Container"
 import * as TmdbAPI from "../services/TMDB-API"

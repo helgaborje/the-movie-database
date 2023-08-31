@@ -7,7 +7,6 @@ interface SliderProps {
 	data: React.ReactNode
 }
 
-
 const SliderCarousel: React.FC<SliderProps> = ({ data }) => {
 
 	const sliderSettings = {
@@ -40,7 +39,7 @@ const SliderCarousel: React.FC<SliderProps> = ({ data }) => {
 			},
 		],
 	}
-	return <Slider {...sliderSettings}>{data }</Slider>
+	return <Slider {...sliderSettings}>{data}</Slider>
 }
 
 export default SliderCarousel
