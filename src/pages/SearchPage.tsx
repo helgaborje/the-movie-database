@@ -1,12 +1,11 @@
-import * as TmdbAPI from "../services/TMDB-API"
 import SearchForm from '../components/SearchForm'
-import { useQuery } from '@tanstack/react-query'
 import Col from 'react-bootstrap/esm/Col'
 import MovieCard from '../components/MovieCard'
 import { useSearchParams } from 'react-router-dom'
 import Row from 'react-bootstrap/esm/Row'
 import Alert from 'react-bootstrap/esm/Alert'
 import Pagination from '../components/Pagination'
+import { useSearch } from "../hooks/useSearch"
 
 const SearchPage = () => {
 	const [pageParams, setPageParams] = useSearchParams({ page: '1' })
@@ -15,9 +14,7 @@ const SearchPage = () => {
 		: 1
 	const query = pageParams.get("query") ?? ""
 	
-	const { data: result, isError, isLoading } = useQuery(
-		['search', query, page],
-		() => TmdbAPI.getSearchMovies(query, page))
+	const { data: result, isError, isLoading } = useSearch(query, page)
 
 	const handleSearch = (search: string) => {
 		setPageParams({ query: search, page: String(1) })
