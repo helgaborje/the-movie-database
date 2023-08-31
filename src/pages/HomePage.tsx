@@ -1,12 +1,12 @@
-import { useQuery } from "@tanstack/react-query"
 import Container from "react-bootstrap/Container"
-import * as TmdbAPI from "../services/TMDB-API"
 import MovieCard from "../components/MovieCard"
 import Alert from "react-bootstrap/Alert"
 import { useSearchParams } from "react-router-dom"
 import Button from "react-bootstrap/esm/Button"
 import SliderCarousel from "../components/SliderCarousel"
 import usePopularMovie from "../hooks/usePopularMovie"
+import useTopRatedMovies from "../hooks/useTopRatedMovies"
+import useNowPlaying from "../hooks/useNowPlaying"
 
 const HomePage = () => {
 	const [searchParams, setSearchParams] = useSearchParams({
@@ -15,11 +15,13 @@ const HomePage = () => {
 	const dayOrWeek = searchParams.get('dayOrWeek')  || 'day'
 	
 	const { data: popular,  isLoading, isError } = usePopularMovie(dayOrWeek)
-	const { data: rated } = useQuery(['top-rated'], TmdbAPI.getTopRatedMovies)
-	const { data: playing } = useQuery(['now-playing'], TmdbAPI.getNowPlayingMovies )
+	const { data: rated } = useTopRatedMovies()
+	const { data: playing } = useNowPlaying()
 	
 	const handleDayOrWeekChange = (changeDayOrWeek: string) => {
-		setSearchParams({ dayOrWeek: changeDayOrWeek })
+		setSearchParams({
+			dayOrWeek: changeDayOrWeek
+		})
 	}
 	
 
