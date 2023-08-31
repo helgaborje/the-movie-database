@@ -17,17 +17,13 @@ const ActorCard: React.FC<ActorCardProps> = ({
 }) => {
 
 	const imageUrl = 'https://image.tmdb.org/t/p/w300'
-	const placeholderImage = 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png'
+	// const placeholderImage = 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png'
 
 	return (
 		<>
-			<Link to={`/person/${id}`}>
+		<Link to={`/person/${id}`}>
 				<Card border='dark' className='bg-dark actor-card'>
-					{profile_path ? (
-						<img className='movie-img' src={imageUrl + profile_path} />
-					) : (
-						<img className='placeholder-img' src={placeholderImage} />
-					)}
+					<img className='movie-img' src={imageUrl + profile_path} />
 				</Card>
 				<h2 className='m-0 mb-1 ms-1'>{name}</h2>
 				<span className='m-0 mb-1 ms-1'>as {character}</span>

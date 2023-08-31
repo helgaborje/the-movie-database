@@ -23,17 +23,13 @@ const MovieCard: React.FC<MovieCardProps> = ({
 	const releaseYear = new Date(release_date).getFullYear()
 
 	const imageUrl = 'https://image.tmdb.org/t/p/w500'
-	const placeholderImage = 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png'
+	// const placeholderImage = 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png'
 
 	return (
 		<>
-			<Link to={`/movie/${id}`}>
+	<Link to={`/movie/${id}`}>
 				<Card border='dark' className='bg-dark movie-card'>
-					{poster_path ? (
-						<img className='movie-img' src={imageUrl + poster_path} />
-					) : (
-						<img className='placeholder-img' src={placeholderImage} />
-					)}
+					<img className='movie-img' src={imageUrl + poster_path} />
 				</Card>
 				<p><AiFillStar className="rating-star" /> {rating}</p>
 				<span className='m-0 mb-1 ms-1'>{releaseYear}</span>
