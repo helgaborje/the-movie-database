@@ -13,7 +13,7 @@ const MovieByGenrePage = () => {
 		? Number(pageParams.get("page"))
 		: 1
 	
-	const { data, isError, isLoading } = useMovieByGenre(genreId)
+	const { data, isError, isLoading } = useMovieByGenre(page, genreId)
 	// const placeholderImage = 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png'
 	
 	return (
