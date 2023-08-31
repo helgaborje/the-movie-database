@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query"
 import * as TmdbAPI from "../services/TMDB-API"
-import { Alert, Badge, Button, Col, Container, Row } from "react-bootstrap"
+import { Alert, Badge, Col, Container, Row } from "react-bootstrap"
 import { Link, useParams } from "react-router-dom"
 import ActorCard from "../components/ActorCard"
 import { Cast } from "../types/TMDB-API.movie-info.types"

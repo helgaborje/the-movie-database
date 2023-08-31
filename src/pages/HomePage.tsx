@@ -11,7 +11,7 @@ const HomePage = () => {
 	const [searchParams, setSearchParams] = useSearchParams({
 		dayOrWeek: 'day', 
 	})
-	const dayOrWeek = searchParams.get('dayOrWeek')
+	const dayOrWeek = searchParams.get('dayOrWeek')  || 'day'
 	
 	const { data: popular,  isLoading, isError } = useQuery(['trending', {dayOrWeek}],  () => TmdbAPI.getPopularMovies(dayOrWeek))
 	const { data: rated } = useQuery(['top-rated'], TmdbAPI.getTopRatedMovies)
