@@ -41,8 +41,10 @@ const SearchPage = () => {
 						<Row className="g-4 row row-cols-xxl-4 row-cols-lg-3 row-cols-md-2 row-cols-1">
 							{result?.results.map(hit => (
 								<Col
+									className="slider-item"
 									lg={3} md={4} sm={6}
 									key={hit.id}
+									style={{ width: '10rem' }}
 								>
 									<MovieCard
 										id={hit.id}

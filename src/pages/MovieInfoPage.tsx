@@ -24,7 +24,8 @@ const MovieInfoPage = () => {
 					<div className="d-flex justify-content-between w-100 align-items-center">
 						<div>
 							<h1>{data?.original_title}</h1>
-							<span className="">{data?.release_date}</span>
+							<p><strong>Release date </strong>{data?.release_date}</p>
+							<p><strong>Runtime </strong>{data.runtime} minutes</p>
 							<div className='d-flex mt-2'>
 								<img className="fluid w-25 me-1" src={posterUrl + data?.poster_path} alt="" />
 								<img className="fluid w-75" src={imageUrl + data?.backdrop_path} alt="" />
@@ -42,9 +43,10 @@ const MovieInfoPage = () => {
 									</Badge>
 								))}
 							</div>
-							<p>Director: { data.director}</p>
+							
 							<p>{data?.overview}</p>
 							<div>
+								<hr />
 								<h2>Cast</h2>
 								<Row>
 									{data?.credits.cast.map((actor: Cast) => (
