@@ -1,17 +1,17 @@
-import { useQuery } from "@tanstack/react-query"
-import * as TmdbAPI from "../services/TMDB-API"
 import { Alert, Badge, Col, Container, Row } from "react-bootstrap"
 import { Link, useParams } from "react-router-dom"
 import ActorCard from "../components/ActorCard"
 import { Cast } from "../types/TMDB-API.movie-info.types"
 import MovieCard from "../components/MovieCard"
+import useMovieById from "../hooks/useMovieById"
+import useSimilarMovies from "../hooks/useSimilarMovies"
 
 const MovieInfoPage = () => {
 	const { id } = useParams()
 	const movieId = Number(id)
 
-	const {data, isError, isLoading} = useQuery(['movie', movieId], () =>  TmdbAPI.getMovieById(movieId))
-	const {data: similarMovie} = useQuery(['similar', movieId], () => TmdbAPI.getSimilarMovies(movieId))
+	const {data, isError, isLoading} = useMovieById(movieId)
+	const {data: similarMovie} = useSimilarMovies(movieId)
 
 	const imageUrl = 'https://image.tmdb.org/t/p/original'
 	const posterUrl = 'https://image.tmdb.org/t/p/w500'
