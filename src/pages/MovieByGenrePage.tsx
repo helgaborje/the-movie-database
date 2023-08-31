@@ -1,9 +1,8 @@
-import { useQuery } from "@tanstack/react-query"
-import * as TmdbAPI from "../services/TMDB-API"
 import { Container, Row, Col, Alert} from "react-bootstrap"
 import MovieCard from "../components/MovieCard"
 import { useParams, useSearchParams } from "react-router-dom"
 import Pagination from "../components/Pagination"
+import useMovieByGenre from "../hooks/useMovieByGenre"
 
 
 const MovieByGenrePage = () => {
@@ -14,10 +13,7 @@ const MovieByGenrePage = () => {
 		? Number(pageParams.get("page"))
 		: 1
 	
-	const { data, isError, isLoading } = useQuery(
-		['genres', { page, genreId }],
-		() => TmdbAPI.getMovieByGenre(page, genreId)
-	)
+	const { data, isError, isLoading } = useMovieByGenre(genreId)
 	// const placeholderImage = 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png'
 	
 	return (
