@@ -20,6 +20,7 @@ const HomePage = () => {
 	const handleDayOrWeekChange = (changeDayOrWeek: string) => {
 		setSearchParams({ dayOrWeek: changeDayOrWeek })
 	}
+	
 
 	return (
 		<>
