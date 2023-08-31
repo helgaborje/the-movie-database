@@ -1,14 +1,13 @@
-import { useQuery } from "@tanstack/react-query"
-import * as TmdbAPI from "../services/TMDB-API"
 import { Alert, Col, Container, Row } from "react-bootstrap"
 import { useParams } from "react-router-dom"
 import MovieCard from "../components/MovieCard"
+import useActor from "../hooks/useActor"
 
 const ActorInfoPage = () => {
     const { id } = useParams()
 	const actorId = Number(id)
 
-	const {data, isError, isLoading} = useQuery(['person', actorId], () =>  TmdbAPI.getActorById(actorId))
+	const {data, isError, isLoading} = useActor(actorId)
 
 	const imageUrl = 'https://image.tmdb.org/t/p/original'
 
