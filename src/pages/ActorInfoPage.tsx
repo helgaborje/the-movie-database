@@ -46,7 +46,7 @@ const ActorInfoPage = () => {
 						</div>
 					</div>
 				</Container>
-				)}
+			)}
 		</>
 	)
 }

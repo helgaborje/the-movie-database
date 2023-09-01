@@ -20,12 +20,12 @@ const MovieInfoPage = () => {
 	const storedMovies = localStorage.getItem('last-viewed-movies') ?? '[]'
 	const movies: Movie[] = JSON.parse(storedMovies)
 
-	const movieExists = movies.some((movie) => movie.id === data?.id);
+	const movieExists = movies.some((movie) => movie.id === data?.id)
 
     if (!movieExists && data) {
         movies.push(data);
 
-        localStorage.setItem('last-viewed-movies', JSON.stringify(movies));
+        localStorage.setItem('last-viewed-movies', JSON.stringify(movies))
     }
 	
 	return (
@@ -63,7 +63,6 @@ const MovieInfoPage = () => {
 								<Row>
 									{data?.credits.cast.map((actor: Cast) => (
 										<Col
-											// className="slider-item"
 											lg={2} md={4} sm={6}
 											key={actor.id}
 										
@@ -73,38 +72,34 @@ const MovieInfoPage = () => {
 												profile_path={actor.profile_path}
 												character={actor.character}
 											/>
-										
 										</Col>
-									))
-
-									}
+									))}
 								</Row>
 							</div>
-<hr />
+							<hr />
 							<div>
 							<h1>You might also like</h1>
-							<Row className="g-4 row row-cols-xxl-4 row-cols-lg-3 row-cols-md-2 row-cols-1">
-							{similarMovie?.results.map(hit => (
-								<Col
-									lg={3} md={4} sm={6}
-									key={hit.id}
-								>
-									<MovieCard
-										id={hit.id}
-										poster_path={hit.poster_path}
-										vote_average={hit.vote_average}
-										title={hit.title}
-										release_date={hit.release_date}
-									/>
-								</Col>
-							))}
-						</Row>
+								<Row className="g-4 row row-cols-xxl-4 row-cols-lg-3 row-cols-md-2 row-cols-1">
+									{similarMovie?.results.map(hit => (
+										<Col
+											lg={3} md={4} sm={6}
+											key={hit.id}
+										>
+											<MovieCard
+												id={hit.id}
+												poster_path={hit.poster_path}
+												vote_average={hit.vote_average}
+												title={hit.title}
+												release_date={hit.release_date}
+											/>
+										</Col>
+									))}
+								</Row>
 							</div>
-
 						</div>
 					</div>
 				</Container>
-				)}
+			)}
 		</>
 	)
 }

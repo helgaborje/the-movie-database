@@ -1,9 +1,9 @@
 import SearchForm from '../components/SearchForm'
-import Col from 'react-bootstrap/esm/Col'
+import Col from 'react-bootstrap/Col'
 import MovieCard from '../components/MovieCard'
 import { useSearchParams } from 'react-router-dom'
-import Row from 'react-bootstrap/esm/Row'
-import Alert from 'react-bootstrap/esm/Alert'
+import Row from 'react-bootstrap/Row'
+import Alert from 'react-bootstrap/Alert'
 import Pagination from '../components/Pagination'
 import { useSearch } from "../hooks/useSearch"
 

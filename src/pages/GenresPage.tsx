@@ -9,7 +9,6 @@ const GenresPage = () => {
 		<>
 			{isError && <Alert variant='warning'>Something went wrong</Alert>}
 			{!isLoading && !isError && (
-			
 				<Container>
 					<h1>Find movie by genre</h1>
 					<Row>

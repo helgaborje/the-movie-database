@@ -8,8 +8,8 @@ import usePopularMovie from "../hooks/usePopularMovie"
 import useTopRatedMovies from "../hooks/useTopRatedMovies"
 import useNowPlaying from "../hooks/useNowPlaying"
 import { Movie } from "../types/TMDB-API.movie-info.types"
-import Col from "react-bootstrap/esm/Col"
-import Row from "react-bootstrap/esm/Row"
+import Col from "react-bootstrap/Col"
+import Row from "react-bootstrap/Row"
 
 const HomePage = () => {
 	const [searchParams, setSearchParams] = useSearchParams({
@@ -29,12 +29,6 @@ const HomePage = () => {
 
 	const storedMovies = localStorage.getItem('last-viewed-movies') ?? '[]'
 	const lastViewedMovies: Movie[] = JSON.parse(storedMovies)
-
-	
-	
-
-	console.log(lastViewedMovies)
-
 	
 	return (
 		<>
