@@ -30,7 +30,7 @@ a {
 .card-container {
 	background-color: rgb(32, 32, 32);
 	padding: 2em;
-	margin: 2em;
+	margin-top: 2em;
 }
 
 .loading-spinner {
@@ -54,11 +54,13 @@ a {
 .movie-img {
 	-webkit-box-shadow: 5px 5px 15px -2px #000000;
 	box-shadow: 5px 5px 15px -2px #000000;
-	.placeholder-img {
-		width: 200px;
-		height: 400px;
-	}
+	max-width: 185px;
+	// max-width: 160px;
 }
+// .placeholder-img {
+// 	width: 200px;
+// 	height: 400px;
+// }
 
 .genres-buttons {
 	background-color: #e4dede;

@@ -22,7 +22,7 @@ const MovieCard: React.FC<MovieCardProps> = ({
 	const rating = Math.round(vote_average * 10) / 10
 	const releaseYear = new Date(release_date).getFullYear()
 
-	const imageUrl = 'https://image.tmdb.org/t/p/w500'
+	const imageUrl = 'https://image.tmdb.org/t/p/w185'
 	// const placeholderImage = 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png'
 
 	return (

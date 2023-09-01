@@ -51,6 +51,7 @@ const MovieInfoPage = () => {
 								<Row>
 									{data?.credits.cast.map((actor: Cast) => (
 										<Col
+											// className="slider-item"
 											lg={2} md={4} sm={6}
 											key={actor.id}
 										
