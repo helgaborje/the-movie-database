@@ -28,6 +28,12 @@ const HomePage = () => {
 	const storedMovies = localStorage.getItem('last-viewed-movies') ?? '[]'
 	const lastViewedMovies: Movie[] = JSON.parse(storedMovies)
 
+	
+	
+
+	console.log(lastViewedMovies)
+
+	
 	return (
 		<>
 			{isError && <Alert variant='warning'>Something went wrong</Alert>}
@@ -105,7 +111,7 @@ const HomePage = () => {
 
 					<Container className='card-container'>
 						<h1>Last Viewed Movies</h1>
-						<SliderCarousel data={lastViewedMovies.slice(-10).map((movie, index) => (
+						{lastViewedMovies.slice(-10).map((movie, index) => (
 							<div
 								className='slider-item'
 								key={`${movie.id}-${index}`}>
@@ -118,7 +124,7 @@ const HomePage = () => {
 								/>
 							</div>
 						))}
-						/>
+						
 					</Container>
 				</>
 			)}

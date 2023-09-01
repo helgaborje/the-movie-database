@@ -19,14 +19,15 @@ const MovieInfoPage = () => {
 	
 	const storedMovies = localStorage.getItem('last-viewed-movies') ?? '[]'
 	const movies: Movie[] = JSON.parse(storedMovies)
+
+	const movieExists = movies.some((movie) => movie.id === data?.id);
+
+    if (!movieExists && data) {
+        movies.push(data);
+
+        localStorage.setItem('last-viewed-movies', JSON.stringify(movies));
+    }
 	
-	const movieExists = movies.some((movie) => movie.id === data?.id)
-	if (!movieExists) {
-		data ? movies.push(data) : null
-	}
-
-	localStorage.setItem('last-viewed-movies', JSON.stringify(movies))
-
 	return (
 		<>
 			{isError && <Alert variant='warning'>Something went wrong</Alert>}
