@@ -7,7 +7,7 @@ export type Movie = {
     release_date: number
     runtime: number
     overview: string
-    vote_average?: number
+    vote_average: number
     credits: {
         cast: Cast[]
     }

@@ -25,7 +25,7 @@ const ActorInfoPage = () => {
 								<p className="mb-5 w-75 ms-5">{data?.biography}</p>
 							</div>
 							<div>
-								<h2>Known for</h2>
+								<h1>Known for</h1>
 								<Row>
 									{data?.movie_credits.cast.map(hit => (
 										<Col

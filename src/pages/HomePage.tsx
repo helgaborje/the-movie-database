@@ -7,6 +7,7 @@ import SliderCarousel from "../components/SliderCarousel"
 import usePopularMovie from "../hooks/usePopularMovie"
 import useTopRatedMovies from "../hooks/useTopRatedMovies"
 import useNowPlaying from "../hooks/useNowPlaying"
+import { Movie } from "../types/TMDB-API.movie-info.types"
 
 const HomePage = () => {
 	const [searchParams, setSearchParams] = useSearchParams({
@@ -23,7 +24,9 @@ const HomePage = () => {
 			dayOrWeek: changeDayOrWeek
 		})
 	}
-	
+
+	const storedMovies = localStorage.getItem('last-viewed-movies') ?? '[]'
+	const lastViewedMovies: Movie[] = JSON.parse(storedMovies)
 
 	return (
 		<>
@@ -93,8 +96,27 @@ const HomePage = () => {
 									vote_average={hit.vote_average}
 									title={hit.title}
 									release_date={hit.release_date}
+
 								/>
 								</div>
+						))}
+						/>
+					</Container>
+
+					<Container className='card-container'>
+						<h1>Last Viewed Movies</h1>
+						<SliderCarousel data={lastViewedMovies.slice(-10).map((movie, index) => (
+							<div
+								className='slider-item'
+								key={`${movie.id}-${index}`}>
+								<MovieCard
+									id={movie.id}
+									poster_path={movie.poster_path}
+									vote_average={movie.vote_average}
+									title={movie.original_title}
+									release_date={movie.release_date}
+								/>
+							</div>
 						))}
 						/>
 					</Container>

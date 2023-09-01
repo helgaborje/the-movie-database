@@ -1,7 +1,7 @@
 import { Alert, Badge, Col, Container, Row } from "react-bootstrap"
 import { Link, useParams } from "react-router-dom"
 import ActorCard from "../components/ActorCard"
-import { Cast } from "../types/TMDB-API.movie-info.types"
+import { Cast, Movie } from "../types/TMDB-API.movie-info.types"
 import MovieCard from "../components/MovieCard"
 import useMovieById from "../hooks/useMovieById"
 import useSimilarMovies from "../hooks/useSimilarMovies"
@@ -15,6 +15,17 @@ const MovieInfoPage = () => {
 
 	const imageUrl = 'https://image.tmdb.org/t/p/original'
 	const posterUrl = 'https://image.tmdb.org/t/p/w500'
+
+	
+	const storedMovies = localStorage.getItem('last-viewed-movies') ?? '[]'
+	const movies: Movie[] = JSON.parse(storedMovies)
+	
+	const movieExists = movies.some((movie) => movie.id === data?.id)
+	if (!movieExists) {
+		data ? movies.push(data) : null
+	}
+
+	localStorage.setItem('last-viewed-movies', JSON.stringify(movies))
 
 	return (
 		<>
@@ -47,7 +58,7 @@ const MovieInfoPage = () => {
 							<p>{data?.overview}</p>
 							<div>
 								<hr />
-								<h2>Cast</h2>
+								<h1>Cast</h1>
 								<Row>
 									{data?.credits.cast.map((actor: Cast) => (
 										<Col
@@ -70,7 +81,7 @@ const MovieInfoPage = () => {
 							</div>
 <hr />
 							<div>
-							<h2>You might also like</h2>
+							<h1>You might also like</h1>
 							<Row className="g-4 row row-cols-xxl-4 row-cols-lg-3 row-cols-md-2 row-cols-1">
 							{similarMovie?.results.map(hit => (
 								<Col
