@@ -2,8 +2,6 @@ import React from 'react'
 import Card from 'react-bootstrap/Card'
 import {AiFillStar} from 'react-icons/ai'
 import { Link } from 'react-router-dom'
-import { Movies, MoviesResponse } from '../types/TMDB-API.movies.types'
-import { Movie } from '../types/TMDB-API.movie-info.types'
 
 interface MovieCardProps {
 	id?: number
@@ -29,19 +27,6 @@ const MovieCard: React.FC<MovieCardProps> = ({
 	const imageUrl = 'https://image.tmdb.org/t/p/w185'
 	// const placeholderImage = 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png'
 
-
-	// const handleMovieClick = () => {
-	// 	const movie = {
-	// 		id,
-	// 		poster_path,
-	// 		vote_average,
-	// 		title,
-	// 		release_date,
-
-	// 	}
-
-	// 	onMovieClick(movie)
-	// }
 
 	return (
 		<>
