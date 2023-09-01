@@ -5,7 +5,7 @@ import { Movie } from "../types/TMDB-API.movie-info.types"
 import { Actor } from "../types/TMDB-API.actor-info.types"
 
 const API_KEY = import.meta.env.VITE_API_KEY
-const DELAY = 500
+const DELAY = 1500
 const adultContent = "&include_adult=false"
 
 const instance = axios.create({

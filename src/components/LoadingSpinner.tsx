@@ -16,6 +16,3 @@ const LoadingSpinner = () => {
 }
 
 export default LoadingSpinner
-
-
-// src="https://thumbs.gfycat.com/AntiqueLightheartedIbizanhound-max-1mb.gif"
