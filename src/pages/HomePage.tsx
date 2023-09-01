@@ -8,6 +8,8 @@ import usePopularMovie from "../hooks/usePopularMovie"
 import useTopRatedMovies from "../hooks/useTopRatedMovies"
 import useNowPlaying from "../hooks/useNowPlaying"
 import { Movie } from "../types/TMDB-API.movie-info.types"
+import Col from "react-bootstrap/esm/Col"
+import Row from "react-bootstrap/esm/Row"
 
 const HomePage = () => {
 	const [searchParams, setSearchParams] = useSearchParams({
@@ -111,10 +113,13 @@ const HomePage = () => {
 
 					<Container className='card-container'>
 						<h1>Last Viewed Movies</h1>
+						<Row>
 						{lastViewedMovies.slice(-10).map((movie, index) => (
-							<div
+							<Col
+								lg={2} md={4} sm={6}
 								className='slider-item'
-								key={`${movie.id}-${index}`}>
+								key={`${movie.id}-${index}`}
+							>
 								<MovieCard
 									id={movie.id}
 									poster_path={movie.poster_path}
@@ -122,9 +127,9 @@ const HomePage = () => {
 									title={movie.original_title}
 									release_date={movie.release_date}
 								/>
-							</div>
+							</Col>
 						))}
-						
+						</Row>
 					</Container>
 				</>
 			)}
