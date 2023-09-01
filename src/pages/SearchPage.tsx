@@ -31,9 +31,10 @@ const SearchPage = () => {
 
 			{!isLoading && !isError && result && (
 				<>
-					<h1>Search result</h1><div id="results">
+					<div id="results">
 						{result.results.length > 0 && query ? (
-							<p>Showing {result.total_results} search results for {query}...</p>
+							<><h1>Search result</h1>
+								<p>Showing {result.total_results} search results for {query}...</p></>
 						) : (query && <p>No results found for {query}.</p>)}
 						<Row className="g-4 row row-cols-xxl-4 row-cols-lg-3 row-cols-md-2 row-cols-1">
 							{result?.results.map(hit => (
@@ -53,20 +54,22 @@ const SearchPage = () => {
 							))}
 						</Row>
 						
-						<Pagination
-							page={page}
-							total_pages={result?.total_pages}
-							hasPreviousPage={result?.page !== 1}
-							hasNextPage={result?.page !== result?.total_pages}
-							onPreviousPage={() => {
-								const prevValue = page - 1
-								setPageParams({ query: query, page: prevValue.toString() })
-							} }
-							onNextPage={() => {
-								const prevValue = page + 1
-								setPageParams({ query: query, page: prevValue.toString() })
-							}}
-						/>
+						{result.results.length > 0 && ( 
+							<Pagination
+								page={page}
+								total_pages={result?.total_pages}
+								hasPreviousPage={result?.page !== 1}
+								hasNextPage={result?.page !== result?.total_pages}
+								onPreviousPage={() => {
+									const prevValue = page - 1
+									setPageParams({ query: query, page: prevValue.toString() })
+								} }
+								onNextPage={() => {
+									const prevValue = page + 1
+									setPageParams({ query: query, page: prevValue.toString() })
+								}}
+							/>
+						)}
 					</div>
 				</>
 			)}
