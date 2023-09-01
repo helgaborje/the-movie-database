@@ -2,6 +2,7 @@ export type Actor = {
     id?: number
     name: string
     place_of_birth: string
+    birthday: number
     profile_path: string
     biography: string
     movie_credits: {

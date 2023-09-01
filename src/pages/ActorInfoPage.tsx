@@ -1,4 +1,4 @@
-import { Alert, Col, Container, Row } from "react-bootstrap"
+import { Alert, Container } from "react-bootstrap"
 import { useParams } from "react-router-dom"
 import MovieCard from "../components/MovieCard"
 import useActor from "../hooks/useActor"
@@ -19,9 +19,10 @@ const ActorInfoPage = () => {
 				<Container>
 					<div>
 						<h1>{data?.name}</h1>
-						<span className="">{data?.place_of_birth}</span>
+						<p><strong>Birthplace</strong> {data?.place_of_birth}</p>
+						<p><strong>Birthday</strong> {data?.birthday}</p>
 						<div className='d-flex mt-2 justify-content-between align-items-start'>
-							<img className="fluid w-25" src={imageUrl + data?.profile_path} alt="" />
+							<img className="fluid w-25" src={imageUrl + data?.profile_path} />
 							<p className="mb-5 w-75 ms-5">{data?.biography}</p>
 						</div>
 
