@@ -39,8 +39,8 @@ const MovieInfoPage = () => {
 						<p><strong>Release date </strong>{data?.release_date}</p>
 						<p><strong>Runtime </strong>{data.runtime} minutes</p>
 						<div className='d-flex mt-2'>
-							<img className="fluid w-25 me-1" src={posterUrl + data?.poster_path} alt="" />
-							<img className="fluid w-75" src={imageUrl + data?.backdrop_path} alt="" />
+							<img className="fluid w-25 me-1" src={posterUrl + data?.poster_path}/>
+							<img className="fluid w-75" src={imageUrl + data?.backdrop_path}/>
 						</div>
 						<div>
 							{data?.genres.map((hit) => (

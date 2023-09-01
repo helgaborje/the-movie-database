@@ -1,7 +1,7 @@
 import Container from "react-bootstrap/Container"
 import MovieCard from "../components/MovieCard"
 import Alert from "react-bootstrap/Alert"
-import { useSearchParams } from "react-router-dom"
+import { Link, useSearchParams } from "react-router-dom"
 import Button from "react-bootstrap/esm/Button"
 import SliderCarousel from "../components/SliderCarousel"
 import usePopularMovie from "../hooks/usePopularMovie"
@@ -10,6 +10,7 @@ import useNowPlaying from "../hooks/useNowPlaying"
 import { Movie } from "../types/TMDB-API.movie-info.types"
 import Col from "react-bootstrap/Col"
 import Row from "react-bootstrap/Row"
+import { Carousel } from "react-bootstrap"
 
 const HomePage = () => {
 	const [searchParams, setSearchParams] = useSearchParams({
@@ -29,12 +30,29 @@ const HomePage = () => {
 
 	const storedMovies = localStorage.getItem('last-viewed-movies') ?? '[]'
 	const lastViewedMovies: Movie[] = JSON.parse(storedMovies)
+
+	const imageUrl = 'https://image.tmdb.org/t/p/original'
+
 	
 	return (
 		<>
 			{isError && <Alert variant='warning'>Something went wrong</Alert>}
 			{!isLoading && !isError && (
 				<>
+					<Carousel>
+						{popular.results.map((movie) => (
+							<Carousel.Item
+								key={movie.id}
+								as={Link}
+								to={`/movie/${movie.id}`}
+							>
+								<div className="mt-2">
+									<img className="w-100" src={imageUrl + movie.backdrop_path}/>
+								</div>
+							</Carousel.Item>
+						))}
+					</Carousel>
+
 					<Container className="card-container">
 						<h1>Now Trending Movies</h1>
 						<div className="trending-btn-container">

@@ -1,4 +1,5 @@
 @import "bootstrap/scss/bootstrap";
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;900&display=swap');
 
 body {
 	text-decoration: none;
@@ -8,6 +9,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
 	margin-bottom: 0.5em;
+	font-family: 'Raleway', sans-serif;
 }
 
 h1 {
@@ -25,11 +27,11 @@ a {
 	color: white;
 }
 
-
 .card-container {
 	background-color: rgb(32, 32, 32);
 	padding: 2em;
-	margin-top: 2em;
+	padding-top: 1em;
+	margin-top: 0.5em;
 }
 
 .loading-spinner {
@@ -90,4 +92,9 @@ a {
 
 .navbar.bg-dark {
 	--bs-bg-opacity: 1;
+}
+
+.navbar-title {
+	font-family: 'Raleway', sans-serif;
+
 }
