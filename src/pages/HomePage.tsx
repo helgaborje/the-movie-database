@@ -98,9 +98,8 @@ const HomePage = () => {
 									vote_average={hit.vote_average}
 									title={hit.title}
 									release_date={hit.release_date}
-
 								/>
-								</div>
+							</div>
 						))}
 						/>
 					</Container>
